@@ -18,7 +18,7 @@ void addFoodToList(const string& username) {
     cout << "Carbs (g): ";
     cin >> carbs;
 
-
+    ofstream file(username + "_foodlist.txt", ios::app);
     if (file.is_open()) {
         file << foodName << "," << calories << "," << protein << "," << carbs << endl;
         file.close();
