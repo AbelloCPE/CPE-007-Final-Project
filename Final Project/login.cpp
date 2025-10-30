@@ -1,6 +1,7 @@
 #include "login.h"
 #include "userprofile.h"
 #include "foodlog.h"
+#include "dietoption.h"
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -103,10 +104,11 @@ void loginUser() {
         do {
             cout << "\n=== MAIN MENU ===\n";
             cout << "1. User Profile\n";
-            cout << "2. Food Log\n";
+            cout << "2. Set Diet Goal\n";
             cout << "3. Add Food\n";
-            cout << "4. Daily Report\n";
-            cout << "5. Logout\n";
+            cout << "4. Food Log\n";
+            cout << "5. Daily Report\n";
+            cout << "6. Logout\n";
             cout << "Enter choice: ";
             cin >> option;
 
@@ -115,21 +117,24 @@ void loginUser() {
                     displayUserProfile(username);
                     break;
                 case 2:
-                    logFood(username);
+                    setDietGoal(username);
                     break;
                 case 3:
                     addFoodToList(username);
                     break;
                 case 4:
-                    viewReport(username, bmr);
+                    logFood(username);
                     break;
                 case 5:
+                    viewReport(username, bmr);
+                    break;
+                case 6:
                     cout << "Logging out...\n";
                     break;
                 default:
                     cout << "Invalid choice.\n";
             }
-        } while (option != 5);
+        } while (option != 6);
 
     } else {
         cout << "Invalid username or password.\n\n";

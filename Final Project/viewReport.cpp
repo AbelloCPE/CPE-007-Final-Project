@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <ctime>
+#include "dietoption.h"
 using namespace std;
 
 void viewReport(const string& username, double bmr) {
@@ -13,6 +14,8 @@ void viewReport(const string& username, double bmr) {
         cout << "No food logs found.\n";
         return;
     }
+
+    double adjustedBMR = getAdjustedBMR(username, bmr);
 
     string line, date, food;
     double calories, protein, carbs;
@@ -62,16 +65,16 @@ void viewReport(const string& username, double bmr) {
     cout << "Calories: " << totalCalories << " kcal\n";
     cout << "Protein:  " << totalProtein << " g\n";
     cout << "Carbs:    " << totalCarbs << " g\n";
-    cout << "BMR:      " << bmr << " kcal/day\n\n";
+    cout << "BMR (Goal): " << adjustedBMR << " kcal/day\n\n";
 
     if (totalCalories == 0)
         cout << "No foods logged today.\n";
-    else if (totalCalories < bmr)
-        cout << "You are below your BMR goal.\n";
-    else if (totalCalories >= bmr + 200)
-        cout << "You exceeded your BMR goal!\n";
+    else if (totalCalories < adjustedBMR)
+        cout << "You are below your calorie goal.\n";
+    else if (totalCalories >= adjustedBMR + 200)
+        cout << "You exceeded your calorie goal!\n";
     else
-        cout << "You reached your BMR goal.\n";
+        cout << "You reached your calorie goal.\n";
 }
 
 #endif
