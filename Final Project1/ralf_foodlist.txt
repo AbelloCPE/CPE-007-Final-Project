@@ -1,0 +1,3 @@
+hotdog,2,2,2
+chicken,2,2,2
+lolipop,2,2,2

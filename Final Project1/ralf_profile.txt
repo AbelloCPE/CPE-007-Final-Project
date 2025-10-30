@@ -1,0 +1,8 @@
+=== USER PROFILE ===
+Username: ralf
+Age: 18 years
+Weight: 65 kg
+Height: 163 cm
+Gender: male
+BMI: 24.46 (Normal weight)
+BMR (Calories Needed): 1639.16 kcal/day
