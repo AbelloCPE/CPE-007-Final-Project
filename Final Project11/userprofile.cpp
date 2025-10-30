@@ -11,7 +11,6 @@ void createUserProfileFile(const string& username, const string& password, int a
     if (profileFile.is_open()) {
         profileFile << "=== USER PROFILE ===\n";
         profileFile << "Username: " << username << endl;
-        profileFile << "Password: " << password << endl;
         profileFile << "Age: " << age << " years\n";
         profileFile << "Weight: " << weight << " kg\n";
         profileFile << "Height: " << height << " cm\n";
@@ -28,7 +27,7 @@ void displayUserProfile(const string& username) {
     string filename = username + "_profile.txt";
     ifstream profileFile(filename);
     if (profileFile.is_open()) {
-        cout << "\n--- PROFILE DETAILS ---\n";
+        cout << "\n";
         string line;
         while (getline(profileFile, line)) {
             cout << line << endl;

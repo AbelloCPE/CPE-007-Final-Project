@@ -1,13 +1,15 @@
 #include <iostream>
 #include "login.h"
+#include "addFood.h"
+#include "logFood.h"
+#include "viewReport.h"
 using namespace std;
 
 int main() {
-	
-	int choice;
+    int choice;
 
     do {
-        cout << "=== Simple Login & Registration ===\n";
+        cout << "=== Login & Registration ===\n";
         cout << "1. Register\n";
         cout << "2. Login\n";
         cout << "3. Exit\n";

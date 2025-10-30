@@ -1,10 +1,9 @@
 #include "login.h"
 #include "userprofile.h"
+#include "foodlog.h"
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <iomanip>
-#include <cctype>
 using namespace std;
 
 void registerUser() {
@@ -27,7 +26,6 @@ void registerUser() {
     cout << "Enter height (cm): ";
     cin >> height;
 
-    // Gender input with validation
     do {
         cout << "Enter gender (male/female): ";
         cin >> gender;
@@ -37,7 +35,6 @@ void registerUser() {
         }
     } while (gender != "male" && gender != "female");
 
-    // BMI Calculation
     double height_m = height / 100.0;
     bmi = weight / (height_m * height_m);
 
@@ -51,13 +48,11 @@ void registerUser() {
     else
         bmiStatus = "Obese";
 
-    // BMR Calculation (Mifflin-St Jeor)
     if (gender == "male")
         bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
     else
         bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
 
-    // Save to main users.txt
     ofstream file("users.txt", ios::app);
     if (file.is_open()) {
         file << username << " " << password << " " << age << " "
@@ -66,14 +61,12 @@ void registerUser() {
         file.close();
     }
 
-    // Create personal organized file
     createUserProfileFile(username, password, age, weight, height, gender, bmi, bmiStatus, bmr);
 
     cout << "\n=== REGISTRATION COMPLETE ===\n";
     cout << "Username: " << username << endl;
     cout << "BMI: " << fixed << setprecision(2) << bmi << " (" << bmiStatus << ")\n";
     cout << "BMR: " << fixed << setprecision(2) << bmr << " kcal/day\n";
-    cout << "A personal file '" << username << "_profile.txt' has been created.\n";
     cout << "Registration successful!\n\n";
 }
 
@@ -106,10 +99,39 @@ void loginUser() {
 
     if (found) {
         cout << "\nLogin successful! Welcome, " << username << "!\n";
-        displayUserProfile(username);
-        cout << "\nEnd of profile.\n\n";
+        int option;
+        do {
+            cout << "\n=== MAIN MENU ===\n";
+            cout << "1. User Profile\n";
+            cout << "2. Food Log\n";
+            cout << "3. Add Food\n";
+            cout << "4. Daily Report\n";
+            cout << "5. Logout\n";
+            cout << "Enter choice: ";
+            cin >> option;
+
+            switch (option) {
+                case 1:
+                    displayUserProfile(username);
+                    break;
+                case 2:
+                    logFood(username);
+                    break;
+                case 3:
+                    addFoodToList(username);
+                    break;
+                case 4:
+                    viewReport(username, bmr);
+                    break;
+                case 5:
+                    cout << "Logging out...\n";
+                    break;
+                default:
+                    cout << "Invalid choice.\n";
+            }
+        } while (option != 5);
+
     } else {
         cout << "Invalid username or password.\n\n";
     }
 }
-
