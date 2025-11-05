@@ -1,0 +1,8 @@
+=== USER PROFILE ===
+Username: Kurt
+Age: 18 years
+Weight: 59 kg
+Height: 167.64 cm
+Gender: male
+BMI: 20.99 (Normal weight)
+BMR (Calories Needed): 1281.03 kcal/day

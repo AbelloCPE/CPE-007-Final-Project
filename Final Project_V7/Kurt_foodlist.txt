@@ -1,0 +1,7 @@
+Rice,200,4,45
+Ham,145,21,1.5
+Fried Chicken,300,20,15
+Fried Chicken,300,20,15
+0,0,0,0
+Ham and rice,545,29,91.5
+Garlic,5,0.2,1
