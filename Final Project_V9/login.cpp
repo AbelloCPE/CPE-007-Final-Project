@@ -100,6 +100,40 @@ void registerUser() {
     cout << "\033[32mRegistration successful!\033[0m\n\n";
 }
 
+void forgotPassword(){
+	string username, password;
+    string fileUser, filePass, gender;
+    int age;
+    double weight, height, bmi, bmr;
+    bool found = false;
+    
+    cout << "=== \033[36mFORGOT PASSWORD\033[0m ===\n";
+    cout << "Enter your username: ";
+    cin >> username;
+    
+	ifstream file("users.txt");
+    if (!file) {
+        cout << "\033[31mNo registered users found.\033[0m\n";
+        return;
+    }
+
+    while (file >> fileUser >> filePass >> age >> weight >> height >> gender >> bmi >> bmr) {
+        if (fileUser == username) {
+            cout << "\033[32mYour password is: " << filePass << "\033[0m\n";
+            found = true;
+            break;
+        }
+    }
+
+    file.close();
+
+    if (!found) {
+        cout << "\033[31mUsername not found.\033[0m\n";
+    }
+}
+
+
+
 void loginUser() {
     string username, password;
     string fileUser, filePass, gender;

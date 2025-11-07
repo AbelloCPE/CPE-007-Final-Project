@@ -5,5 +5,7 @@ void registerUser();
 
 void loginUser();
 
+void forgotPassword();
+
 #endif
 

@@ -71,7 +71,7 @@ void logFood(const string& username) {
 	}
 }
 	else{
-		cout << "\nEnter which food you ate (1-" << index << "), or (0) to go back): ";
+		cout << "\nEnter which food you ate (1-" << index << "), or (0) to go back: ";
         while (!(cin >> choice)) {
             cin.clear();
             cin.ignore(10000, '\n');

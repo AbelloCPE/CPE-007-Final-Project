@@ -28,7 +28,8 @@ int main() {
         cout << "=================== \033[36mLOGIN & REGISTRATION MENU\033[0m ===================\n\n";
         cout << "1. Register\n";
         cout << "2. Login\n";
-        cout << "3. Exit\n\n";
+        cout << "3. Forgot Password\n";
+        cout << "4. Exit\n\n";
         cout << "Enter choice: ";
         cin >> choice;
         
@@ -37,7 +38,7 @@ int main() {
 			cin.clear();
         	cin.ignore(10000, '\n');
         	system("cls");
-        	cout << "\033[31mInvalid input! Please enter a number between 1 and 3.\033[0m\n";
+        	cout << "\033[31mInvalid input! Please enter a number between 1 and 4.\033[0m\n";
         	cout << "\nPress Enter to continue...";
         	cin.ignore();
         	system("cls");
@@ -56,8 +57,13 @@ int main() {
                 cout << "=================== \033[36mLOGIN\033[0m ===================\n\n";
                 loginUser();
                 break;
-
-            case 3:
+			
+			case 3:
+				system("cls");
+				forgotPassword();
+				break;
+			
+            case 4:
                 cout << "Exiting program...\n";
                 break;
 
@@ -65,13 +71,13 @@ int main() {
                 cout << "\033[31mInvalid choice. Try again.\033[0m\n";
         }
 
-        if (choice != 3) {
+        if (choice != 4) {
             cout << "\n" << "Press Enter to return to the main menu...";
             cin.ignore();
             cin.get();
         }
 
-    } while (choice != 3);
+    } while (choice != 4);
 
     return 0;
 }

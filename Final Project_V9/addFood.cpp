@@ -255,7 +255,7 @@ void addFoodToList(const string& username) {
         }
 
         vector<int> selected;
-        cout << "\nEnter food numbers to mix (separated by space, (0) to stop): ";
+        cout << "\nEnter food numbers to mix (separated by space), (0) to stop: ";
         
         int choiceNum;
         while (true) {
