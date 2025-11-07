@@ -24,7 +24,7 @@ void addFoodToList(const string& username) {
 		cin.clear();
         cin.ignore(10000, '\n');
         system("cls");
-        cout << "Invalid input! Please enter a number between 1-3 or 0 to go back.\n";
+        cout << "Invalid input! Please enter a number between (1-3) or (0) to go back.\n";
         cout << "\nPress Enter to continue...";
         cin.ignore();
         system("cls");
@@ -160,8 +160,10 @@ void addFoodToList(const string& username) {
         	return addFoodToList(username);
 		}
         
+        cin.ignore();
         cout << "Enter food name: ";
         getline(cin, foodName);
+    
         
         cout << "Calories: ";
         while (!(cin >> calories)){
@@ -253,7 +255,7 @@ void addFoodToList(const string& username) {
         }
 
         vector<int> selected;
-        cout << "\nEnter food numbers to mix (separated by space, 0 to stop): ";
+        cout << "\nEnter food numbers to mix (separated by space, (0) to stop): ";
         
         int choiceNum;
         while (true) {

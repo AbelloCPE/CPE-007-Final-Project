@@ -63,7 +63,7 @@ void logFood(const string& username) {
     if (index == 1) {
 
 // ERROR HANDLING INCASE THEY ENTER SOMETIHING IN THE ALPHABET
-    cout << "\nEnter which food you ate (1) or 0 to go back: ";
+    cout << "\nEnter which food you ate (1) or (0) to go back: ";
     while(!(cin >> choice)){
     	cin.clear();
 		cin.ignore(10000, '\n');
@@ -71,11 +71,11 @@ void logFood(const string& username) {
 	}
 }
 	else{
-		cout << "\nEnter which food you ate (1-" << index << ", or 0 to go back): ";
+		cout << "\nEnter which food you ate (1-" << index << "), or (0) to go back): ";
         while (!(cin >> choice)) {
             cin.clear();
             cin.ignore(10000, '\n');
-            cout << "\033[31mInvalid input! Please enter a number (1-" << index << " or 0 to go back): \033[0m";
+            cout << "\033[31mInvalid input! Please enter a number (1-" << index << "), or (0) to go back): \033[0m";
 	}
 }
 
