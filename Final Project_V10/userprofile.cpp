@@ -5,6 +5,8 @@
 #include <cstdlib> // for system()
 using namespace std;
 
+// Function to create a new user profile and sabe all user info
+
 void createUserProfileFile(const string& username, const string& password, int age, double weight, double height,
                            const string& gender, double bmi, const string& bmiStatus, double bmr) {
                            	
