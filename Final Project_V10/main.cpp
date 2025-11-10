@@ -35,25 +35,25 @@ int main() {
         
         // THIS HANDLES ERRORS ON INPUT SUCH AS IF YOU ARAE GOING TO INPUT Q on 1-3 IT WILL JUST RETURN 
         if (cin.fail()){
-			cin.clear();
-        	cin.ignore(10000, '\n');
+			cin.clear();												// remove the error state
+        	cin.ignore(10000, '\n');									// ignore all the leftover input in buffer
         	system("cls");
         	cout << "\033[31mInvalid input! Please enter a number between 1 and 4.\033[0m\n";
         	cout << "\nPress Enter to continue...";
-        	cin.ignore();
+        	cin.ignore();												// wait for enter key
         	system("cls");
-        	continue;
+        	continue;													// go back to the start of the loop
 	}
 
         system("cls"); // Clear again before showing new section
 
         switch (choice) {
-            case 1:
+            case 1:			// registration option
                 cout << "=================== \033[36mREGISTER USER\033[0m ===================\n\n";
                 registerUser();
                 break;
 
-            case 2:
+            case 2:			// login option
                 cout << "=================== \033[36mLOGIN\033[0m ===================\n\n";
                 loginUser();
                 break;
@@ -77,8 +77,9 @@ int main() {
             cin.get();
         }
 
-    } while (choice != 4);
+    } while (choice != 4);		// repeat until user doesn't choose exit
 
     return 0;
 }
+
 
