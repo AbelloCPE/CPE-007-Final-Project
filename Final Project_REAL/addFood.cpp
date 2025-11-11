@@ -293,9 +293,11 @@ void addFoodToList(const string& username) {
                     continue;
                 }
 
-                if (choiceNum == 0) break;
+                if (choiceNum == 0) 
+					break;
                 if (choiceNum >= 1 && choiceNum <= (int)names.size()) selected.push_back(choiceNum - 1);
-                else cout << "\033[31mInvalid number. Try again.\033[0m\n";
+                else 
+					cout << "\033[31mInvalid number. Try again.\033[0m\n";
             }
 
             if (selected.empty()) {
@@ -327,7 +329,8 @@ void addFoodToList(const string& username) {
             file << foodName << "," << calories << "," << protein << "," << carbs << endl;
             file.close();
             cout << "\nFood saved successfully!\n";
-        } else {
+        } 
+		else {
             cout << "\033[31mError saving food list.\033[0m\n";
         }
 
@@ -336,3 +339,4 @@ void addFoodToList(const string& username) {
         system("cls");
     }
 }
+
