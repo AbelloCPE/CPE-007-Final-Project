@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <cstdlib>
+#include <cctype>
 using namespace std;
 // function for registration 
 void registerUser() {
@@ -205,4 +205,5 @@ void loginUser() {
         cout << "\033[31mInvalid username or password.\033[0m\n\n";
     }
 }
+
 
